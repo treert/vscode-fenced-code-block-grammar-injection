@@ -1,15 +1,15 @@
 {
-  "name": "markdown-fenced-codeblock-example-injection",
-  "displayName": "Markdown fenced code block example injection",
-  "description": "",
+  "name": "codeblock-syntax-highlight",
+  "displayName": "OneMore fenced code block syntax highlight",
+  "description": "支持比如Markdown的代码块高亮，关联一些特殊的语言",
   "version": "0.0.1",
-  "publisher": "bierner",
+  "publisher": "onemore",
   "license": "MIT",
   "repository": {
-    "url": "https://github.com/mjbvz/vscode-fenced-code-block-grammar-injection-example.git"
+    "url": "https://github.com/treert/vscode-fenced-code-block-grammar-injection.git"
   },
   "bugs": {
-    "url": "https://github.com/mjbvz/vscode-fenced-code-block-grammar-injection-example/issues"
+    "url": "https://github.com/treert/vscode-fenced-code-block-grammar-injection/issues"
   },
   "engines": {
     "vscode": "^1.8.0"
@@ -18,23 +18,20 @@
     "Other"
   ],
   "contributes": {
-    "languages": [
-      {
-        "id": "superjs-injection"
-      }
-    ],
     "grammars": [
-      {
-        "language": "superjs-injection",
-        "scopeName": "markdown.superjs.codeblock",
-        "path": "./syntaxes/codeblock.json",
-        "injectTo": [
-          "text.html.markdown"
-        ],
-        "embeddedLanguages": {
-          "meta.embedded.block.superjs": "javascript"
-        }
-      }
+			{
+				"scopeName": "markdown.fenced.codeblock",
+				"path": "./syntaxes/markdown-codeblock.json",
+				"injectTo": [
+				  "text.html.markdown"
+				],
+				"embeddedLanguages": {
+				  "meta.embedded.block.glsl": "glsl",
+				  "meta.embedded.block.hlsl": "hlsl",
+				  "meta.embedded.block.cg": "cg",
+				  "meta.embedded.block.shaderlab": "shaderlab"
+				}
+			}
     ]
   },
   "dependencies": {  }

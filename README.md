@@ -1,3 +1,46 @@
+# OneMore Markdown fenced code block syntax highlight
+
+专用于支持 Markdown fenced code block 语法高亮。如果哪天官方支持了，就干掉这个库。
+
+```glsl
+in vec4 position;
+uniform mat4 matrix;
+void main() {
+  gl_Position = matrix * position;
+}
+```
+
+```hlsl
+half3 ColorGrading(half3 color) 
+{
+    color *= _PostExposure;
+    float3 colorLutSpace = saturate(LUT_SPACE_ENCODE(color.rgb));
+    color = ApplyLut2D(TEXTURE2D_PARAM(_Lut2D, sampler_Lut2D), colorLutSpace, _Lut2D_Params);
+    return color;
+}
+```
+
+```cg
+// glsl 的代码，先顶着
+in vec4 position;
+uniform mat4 matrix;
+void main() {
+  gl_Position = matrix * position;
+}
+```
+
+```shader
+Shader "Demo" {
+    Properties{
+        _MainTex("Base (RGB)", 2D) = "white" {}
+    }
+    HLSLINCLUDE
+    TEXTURE2D_SAMPLER2D(_MainTex, sampler_MainTex);
+    half4 _MainTex_TexelSize;
+    ENDHLSL
+}
+```
+
 # VSCode Markdown Fenced Code Block Grammar Injection Example
 
 Demonstrates how an extension can inject support for a new grammar in VSCode's builtin markdown grammar for fenced code blocks. This extension injects an alias for JavaScript called `superjs` so support editor highlighting of blocks that look like:
